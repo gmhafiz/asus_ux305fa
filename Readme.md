@@ -127,6 +127,7 @@ and set layout.css.devPixelsPerPx to 1.25. This increases the size by 25%.
 
 
 ## Credits
-https://wiki.archlinux.org/index.php/ASUS_Zenbook_UX305
-https://github.com/thezerobit/asus-zenbook-ux305fa/blob/master/Readme.md
-https://www.reddit.com/r/linux/comments/3ia8ta/review_of_ubuntu_on_asus_ux305fa/
+
+[https://wiki.archlinux.org/index.php/ASUS_Zenbook_UX305]
+[https://github.com/thezerobit/asus-zenbook-ux305fa/blob/master/Readme.md]
+[https://www.reddit.com/r/linux/comments/3ia8ta/review_of_ubuntu_on_asus_ux305fa/]
