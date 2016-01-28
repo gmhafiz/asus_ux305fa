@@ -1,0 +1,9 @@
+bash_dotfiles*
+.ssh/
+.vim/
+.backup.sh
+.bash*
+.gitconfig
+.vimrc
+findkeys.sh
+info.txt
