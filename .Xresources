@@ -11,8 +11,8 @@ Xft.hintstyle:  hintslight
 !*transparent: true
 
 ! terminal colors ------------------------------------------------------------
-!#include ".Xresources.d/color/tomorrow-night"
-#include ".Xresources.d/color/solarized"
+#include ".Xresources.d/color/tomorrow-night"
+!#include ".Xresources.d/color/solarized"
 !#include ".Xresources.d/color/solarized-light"
 
 
@@ -22,7 +22,7 @@ Xft.hintstyle:  hintslight
 ! Font
 
 xterm*faceName: DejaVu Sans Mono Book
-xterm*faceSize: 12
+xterm*faceSize: 14
 
 !xterm*VT100.geometry:     80x25
 !xterm*faceName:           Terminus:style=Regular:size=9
