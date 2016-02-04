@@ -50,6 +50,7 @@ end
 
 run_once("urxvtd")
 run_once("unclutter -root")
+run_once("synclient TapButton3=2 FingerHigh=10 FingerLow=5")
 -- }}}
 
 -- {{{ Variable definitions
@@ -89,7 +90,7 @@ local layouts = {
 -- {{{ Tags
 tags = {
    names = { " EDITOR ",  " VIM ", " TERM ", " FILES ", " WEB ", " MEDIA ", " MONITOR ", " VM ", " VNC " },
-   layout = { layouts[3], layouts[3], layouts[3], layouts[7], layouts[3], layouts[6], layouts[7], layouts[3], layouts[6] }
+   layout = { layouts[3], layouts[3], layouts[3], layouts[7], layouts[7], layouts[6], layouts[7], layouts[3], layouts[6] }
 }
 for s = 1, screen.count() do
    tags[s] = awful.tag(tags.names, s, tags.layout)
@@ -570,16 +571,19 @@ globalkeys = awful.util.table.join(
     awful.key({ }, "#70",      function () awful.util.spawn("xbacklight -inc 10") end),
     awful.key({ }, "#69",      function () awful.util.spawn("xbacklight -dec 10") end),
     
+    -- Touchpad
+    awful.key({ }, "#199",     function () os.execute("sh ~/Sync/bin/toggle_touchpad.sh") end),
+    
     -- ALSA volume control
     
     awful.key({ altkey }, "Up",
         function ()
-            awful.util.spawn("amixer -D pulse sset Master 10%+")
+            awful.util.spawn("pactl set-sink-volume 0 +10%")
             myvolumebar.update()
         end),
     awful.key({ altkey }, "Down",
         function ()
-            awful.util.spawn("amixer -D pulse sset Master 10%-")
+            awful.util.spawn("pactl set-sink-volume 0 -10%")
             myvolumebar.update()
         end),
     awful.key({ }, "#121",
@@ -589,12 +593,12 @@ globalkeys = awful.util.table.join(
         end),
     awful.key({ }, "#123",        
         function ()
-	    awful.util.spawn("pactl set-sink-volume 0 +10%")
+	    awful.util.spawn("amixer -D pulse sset Master 10%+")
             myvolumebar.update()
         end),
     awful.key({ }, "#122",
         function ()
-	    awful.util.spawn("pactl set-sink-volume 0 -10%")
+	    awful.util.spawn("amixer -D pulse sset Master 10%-")
             myvolumebar.update()
         end),
      -- os.execute(string.format("amixer set %s %s+", myvolumebar.channel, myvolumebar.step))

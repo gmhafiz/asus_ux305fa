@@ -82,7 +82,7 @@ local function worker(args)
             then
                 naughty.notify({
                     title    = iface,
-                    text     = "no carrier",
+                    text     = " ",
                     timeout  = 7,
                     position = "top_left",
                     icon     = helpers.icons_dir .. "no_net.png",
