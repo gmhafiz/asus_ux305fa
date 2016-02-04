@@ -68,10 +68,10 @@ sparingly.
 
 ### Touchpad
 As an Awesome WM user, touchpad is rarely used. But when we do, we want three 
-finger tap to simulate middle button click. But the following into ~/.bashrc 
+finger tap to simulate middle button click. Put the following into rc.lua 
 file.
 
-    synclient TapButton3=2 FingerHigh=10 FingerLow=5
+    run_once("synclient TapButton3=2 FingerHigh=10 FingerLow=5")
 
 We can set up palm rejection with `synclient` too:
 
