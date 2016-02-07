@@ -31,14 +31,15 @@ There are two audio output, one is HDMI and another is Conexant. I find it
 easier to just blacklist HDMI and leave out Conexant which we are going to use.
 
     sudo touch /etc/modprobe.d/intel.conf
-    sudo cat "options snd_hda_intel enable=0,1" /etc/modprobe.d/intel.conf
+    sudo cat "options snd_hda_intel enable=0,1" >> /etc/modprobe.d/intel.conf
 
 To use Fn+f10, Fn+f11 and Fn+12 buttons for mute, down volume and up volume
-respectively, we are going to need `amixer` and `pactl`.
+respectively, we are going to need `amixer` and `pactl`. Alsamixer is already
+installed by default, so we need to install pulseaudio volume control.
 
     sudo apt-get install pavucontrol
     
-The keycodes are found by `xev`. The code for rc.lua is the following:
+The keycodes are found by `xev`. The code for rc.lua are the following:
 
     awful.key({ }, "#121",
         function ()
@@ -55,7 +56,7 @@ The keycodes are found by `xev`. The code for rc.lua is the following:
 
 Another thing of note is the speaker volume can be very low. In this case, we
 can use pavucontrol to increase the volume up to 150%. This should be used
-sparingly.
+sparingly as I noticed crackling when moving the volume more than 100%.
 
     awful.key({ altkey }, "Up",
         function ()
@@ -68,15 +69,16 @@ sparingly.
 
 ### Touchpad
 As an Awesome WM user, touchpad is rarely used. But when we do, we want three 
-finger tap to simulate middle button click. Put the following into rc.lua 
+finger tap to simulate middle button click and palm rejection when the touchad
+is switched on. Put the following into rc.lua 
 file.
 
     run_once("synclient TapButton3=2 FingerHigh=10 FingerLow=5")
 
-We can set up palm rejection with `synclient` too:
+Set up palm rejection with `synclient` as well:
 
-    synclient AreaLeftEdge=500
-    synclient AreaRightEdge=2500
+    run_once("synclient AreaLeftEdge=500")
+    run_once("synclient AreaRightEdge=2500")
 
 To use Fn+f9 button to toggle the touchpad. We need to use `xinput`. 
 
