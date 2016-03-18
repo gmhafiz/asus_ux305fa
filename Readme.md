@@ -124,12 +124,44 @@ laptop. You can manually suspend and hibernate through terminal.
 
 ### Firefox
 
+#### DPI
 To make webpages render at an appropriate size, navigate to about:config
 and set layout.css.devPixelsPerPx to 1.25. This increases the size by 25%.
 
+#### Dark Texts on Light Textboxes
+If dark GTK theme is used, textboxes will have both dark background and dark texts.
+In order to get dark font colour on light background, enter the following css and restart firefox.
+
+    ~/.mozilla/firefox/xxxxxxxx.default/chrome/userContent.css
+
+```css
+input:not(.urlbar-input):not(.textbox-input):not(.form-control):not([type='checkbox']) {
+    -moz-appearance: none !important;
+    background-color: white;
+    color: black;
+}
+
+#downloads-indicator-counter {
+    color: white;
+}
+
+textarea {
+    -moz-appearance: none !important;
+    background-color: white;
+    color: black;
+}
+
+select {
+    -moz-appearance: none !important;
+    background-color: white;
+    color: black;
+}
+```
 
 ## Credits
 
  - https://wiki.archlinux.org/index.php/ASUS_Zenbook_UX305
  - https://github.com/thezerobit/asus-zenbook-ux305fa/blob/master/Readme.md
  - https://www.reddit.com/r/linux/comments/3ia8ta/review_of_ubuntu_on_asus_ux305fa/
+ - https://wiki.archlinux.org/index.php/Firefox#Unreadable_input_fields_with_dark_GTK.2B_themes
+ 
