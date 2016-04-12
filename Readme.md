@@ -69,8 +69,8 @@ sparingly as I noticed crackling when moving the volume more than 100%.
 
 ### Touchpad
 As an Awesome WM user, touchpad is rarely used. But when we do, we want three 
-finger tap to simulate middle button click and palm rejection when the touchad
-is switched on. Put the following into rc.lua 
+finger tap to simulate middle button click, palm rejection when the touchad
+is switched on and two finger horizontal scrolling. Put the following into rc.lua 
 file.
 
     run_once("synclient TapButton3=2 FingerHigh=10 FingerLow=5")
@@ -79,6 +79,12 @@ Set up palm rejection with `synclient` as well:
 
     run_once("synclient AreaLeftEdge=500")
     run_once("synclient AreaRightEdge=2500")
+    
+    
+As for two finger horizontal scrolling.:
+    
+    run_once("synclient HorizTwoFingerScroll=1")
+
 
 To use Fn+f9 button to toggle the touchpad. We need to use `xinput`. 
 
